@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: local('Poppins-Medium'),
+    url('../../assets/Poppins-Medium.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'DIN2014-Bold';
+  src: local('DIN2014-Bold'),
+    url('../../assets/DIN2014-Bold.ttf') format('opentype');
+}
+.FooterHome {
+ 
+    width: 100%;
+    margin-top: 20%;
+    background-color: #2B3980;
+    color: white;
+    
+    padding-left: 10%;
+    padding-top: 2%
+  };
+  
+ 
+  .Footer_item_title{
+    font-family:DIN2014-Bold ;
+    font-size: 18px;
+
+  }
+
+  .footer_link_item{
+    font-family: Poppins-Medium;
+    font-size: 14px;
+    margin-top: 7px;
+  }
+
+
+  .link_title{
+    font-family:DIN2014-Bold ;
+    font-size: 18px;
+    min-width: 150px;
+    margin-top: 10%;
+
+  }
+
+  .container_icon{
+    display: flex;
+    align-items:end;
+    padding-left: 70%;
+    margin-top: 10%;
+
+
+  }
+
+  @media screen and (max-width: 767px){
+    .container_icon{
+      padding-left: 1%;
+    }
+  }

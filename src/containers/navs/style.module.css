@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'GvtimeRegular-AL6Jg';
+    src: local('GvtimeRegular-AL6Jg'), url('../../assets/GvtimeRegular-AL6Jg.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: local('Poppins-Medium'), url('../../assets/Poppins-Medium.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Chivo-Bold';
+    src: local('Chivo-Bold'), url('../../assets/Chivo-Bold.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'DIN2014-Bold';
+    src: local('DIN2014-Bold'), url('../../assets/DIN2014-Bold.ttf') format('opentype');
+}
+
+.Logo {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    height: 99px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.04), 0 0px 0px rgba(0, 0, 0, 0.04);
+}
+
+.lang {
+    color: #da2323;
+    font-size: 20px;
+}
+
+.dropdownitem:hover {
+    color: #da2323;
+}
+
+.TopNav {
+    background-color: #cf0e48;
+    color: white;
+    width: 100%;
+    height: 80px;
+}
+
+.navbar_mobile {
+    margin-left: 20%;
+}
+
+@media (max-width: 768px) {
+    .navbar_mobile {
+        margin-left: -10%;
+    }
+}
+
+.Logotitle {
+    font-size: 30px;
+    color: #24693c;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: GvtimeRegular-AL6Jg;
+}
+
+.Linktitle {
+    font-size: 180%;
+    color: #757575;
+    line-height: normal;
+    font-weight: 400;
+    font-family: DIN2014-Bold;
+}
+
+.Linktitle:hover {
+    background-color: #fff;
+    color: #fff;
+}
+
+.Dropdown_title {
+    font-size: 180%;
+    color: #757575;
+    line-height: normal;
+    font-weight: 400;
+    font-family: DIN2014-Bold;
+}
+
+.Dropdown_title:hover {
+    background-color: #fff;
+    color: #fff;
+}
+
+.TopNav_header {
+    height: 100px;
+    background-color: white;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Image_Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: -20%;
+    max-width: 200px;
+}
+
+.Item_component {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.menu_item_title {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.controled_dropdown_component {
+    background-color: '#1f3b64';
+    border: '0px';
+    width: '100%';
+}
