@@ -3,14 +3,14 @@ const data = (isSuperAdmin) => {
     {
       id: "pages-plants",
      
-      label: "Home",
+      label: "dashboards.home",
       to: "/app/dashboards/home",
       subs: [],
     },
     {
       id: "pages-profiling",
      
-      label: "Services",
+      label: "dashboards.services",
 
       to: "/app/dashboards/identify",
       subs: [],
@@ -19,7 +19,7 @@ const data = (isSuperAdmin) => {
 
     {
       id: "pages-Contact",
-      label: "Contact",
+      label: "dashboards.contact",
 
       to: "/app/dashboards/contact",
       subs: [],

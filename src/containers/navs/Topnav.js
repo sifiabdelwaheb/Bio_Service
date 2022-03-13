@@ -1,214 +1,154 @@
-import React, { Component } from 'react'
-import { injectIntl } from 'react-intl'
+import React, { Component } from "react";
+import { injectIntl } from "react-intl";
 import {
   UncontrolledDropdown,
   DropdownItem,
   DropdownToggle,
   DropdownMenu,
   Button,
-
-
   NavbarToggler,
   NavbarBrand,
-
-
-
   Container,
-  Badge
-} from 'reactstrap'
-import { NavLink } from 'react-router-dom'
-import { connect, useDispatch } from 'react-redux'
+  Badge,
+} from "reactstrap";
+import { NavLink } from "react-router-dom";
+import { connect, useDispatch } from "react-redux";
 
-import logoutAction from '../../redux/auth/authUserRedux'
+import logoutAction from "../../redux/auth/authUserRedux";
 import {
   setContainerClassnames,
   clickOnMobileMenu,
   changeLocale,
   changeSelectedMenuHasSubItems,
-} from '../../redux/actions'
-import allUsersActions from '../../redux/users/getAllUsersRedux'
-import allLanguageActions from '../../redux/language/updateLanguageRedux'
-import logo from '../../assets/svg/bioservice.svg'
-import logo2 from '../../assets/images/avatr_logo.png'
+} from "../../redux/actions";
+import allUsersActions from "../../redux/users/getAllUsersRedux";
+import allLanguageActions from "../../redux/language/updateLanguageRedux";
+import logo from "../../assets/svg/bioservice.svg";
+import logo2 from "../../assets/images/avatr_logo.png";
 import {
   menuHiddenBreakpoint,
   searchPath,
   localeOptions,
   isDarkSwitchActive,
-} from '../../constants/defaultValues'
+} from "../../constants/defaultValues";
 
-import { MobileMenuIcon, MenuIcon } from '../../components/svg'
+import { MobileMenuIcon, MenuIcon } from "../../components/svg";
 
-import { getDirection, setDirection } from '../../helpers/Utils'
-import Classes from './style.module.css'
+import { getDirection, setDirection } from "../../helpers/Utils";
+import Classes from "./style.module.css";
 
-import IntlMessages from '../../helpers/IntlMessages'
-import Sidebar from './Sidebar'
-import { Nav, NavItem, Collapse } from 'reactstrap'
-import menuItems from '../../constants/menu'
-import { Row, Col, Input } from 'reactstrap'
+import IntlMessages from "../../helpers/IntlMessages";
+import Sidebar from "./Sidebar";
+import { Nav, NavItem, Collapse } from "reactstrap";
+import menuItems from "../../constants/menu";
+import { Row, Col, Input } from "reactstrap";
 //LocationOnIcon from 'icons-material/LocationOn';
-import AddLocationIcon from '@mui/icons-material/AddLocation';
-import CallIcon from '@mui/icons-material/Call';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { green } from '@mui/material/colors';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-
+import AddLocationIcon from "@mui/icons-material/AddLocation";
+import CallIcon from "@mui/icons-material/Call";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { green } from "@mui/material/colors";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import department from "./department";
 class TopNav extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.toggle1 = this.toggle1.bind(this);
+    this.onMouseOpen = this.onMouseOpen.bind(this);
+    this.onMouseClose = this.onMouseClose.bind(this);
 
     this.state = {
       isInFullScreen: false,
-      searchKeyword: '',
+      dropdownOpen: false,
+      dropdownOpen1: false,
+
+      searchKeyword: "",
       lang:
-        (localStorage.getItem('currentLanguage') &&
-          localStorage.getItem('currentLanguage').toUpperCase()) ||
-        'EN',
-    }
+        (localStorage.getItem("currentLanguage") &&
+          localStorage.getItem("currentLanguage").toUpperCase()) ||
+        "EN",
+    };
+  }
+
+  toggle() {
+    this.setState((prevState) => ({
+      dropdownOpen: !prevState.dropdownOpen,
+    }));
+  }
+
+  onMouseEnter() {
+    this.setState({ dropdownOpen: true });
+  }
+
+  onMouseLeave() {
+    this.setState({ dropdownOpen: false });
+  }
+
+  toggle1() {
+    this.setState((prevState1) => ({
+      dropdownOpen1: !prevState1.dropdownOpen1,
+    }));
+  }
+
+  onMouseOpen() {
+    this.setState({ dropdownOpen1: true });
+  }
+
+  onMouseClose() {
+    this.setState({ dropdownOpen1: false });
   }
 
   handleChangeLocale = (locale, direction) => {
-    console.log('direction', direction)
-    this.props.changeLocale(locale)
-    this.props.updateLanguage(locale, this.props.id)
-    this.setState({ lang: locale.toUpperCase() })
+    console.log("direction", direction);
+    this.props.changeLocale(locale);
+    this.props.updateLanguage(locale, this.props.id);
+    this.setState({ lang: locale.toUpperCase() });
 
-    setDirection(direction)
+    setDirection(direction);
     setTimeout(() => {
-      window.location.reload()
-    }, 500)
-  }
-  isInFullScreen = () => {
-    return (
-      (document.fullscreenElement && document.fullscreenElement !== null) ||
-      (document.webkitFullscreenElement &&
-        document.webkitFullscreenElement !== null) ||
-      (document.mozFullScreenElement &&
-        document.mozFullScreenElement !== null) ||
-      (document.msFullscreenElement && document.msFullscreenElement !== null)
-    )
-  }
-  handleSearchIconClick = (e) => {
-    if (window.innerWidth < menuHiddenBreakpoint) {
-      let elem = e.target
-      if (!e.target.classList.contains('search')) {
-        if (e.target.parentElement.classList.contains('search')) {
-          elem = e.target.parentElement
-        } else if (
-          e.target.parentElement.parentElement.classList.contains('search')
-        ) {
-          elem = e.target.parentElement.parentElement
-        }
-      }
+      window.location.reload();
+    }, 500);
+  };
 
-      if (elem.classList.contains('mobile-view')) {
-        this.search()
-        elem.classList.remove('mobile-view')
-        this.removeEventsSearch()
-      } else {
-        elem.classList.add('mobile-view')
-        this.addEventsSearch()
-      }
-    } else {
-      this.search()
-    }
-  }
-  addEventsSearch = () => {
-    document.addEventListener('click', this.handleDocumentClickSearch, true)
-  }
-  removeEventsSearch = () => {
-    document.removeEventListener('click', this.handleDocumentClickSearch, true)
-  }
+  handleLogout = async () => {
+    await window.location.reload();
+    await this.props.logoutHandler();
+    await localStorage.removeItem("persist:root");
+    await localStorage.removeItem("__theme_color");
+  };
 
-  handleDocumentClickSearch = (e) => {
-    let isSearchClick = false
-    if (
-      e.target &&
-      e.target.classList &&
-      (e.target.classList.contains('navbar') ||
-        e.target.classList.contains('simple-icon-magnifier'))
-    ) {
-      isSearchClick = true
-      if (e.target.classList.contains('simple-icon-magnifier')) {
-        this.search()
-      }
-    } else if (
-      e.target.parentElement &&
-      e.target.parentElement.classList &&
-      e.target.parentElement.classList.contains('search')
-    ) {
-      isSearchClick = true
-    }
+  menuButtonClick = (e, menuClickCount, containerClassnames) => {
+    e.preventDefault();
 
-    if (!isSearchClick) {
-      const input = document.querySelector('.mobile-view')
-      if (input && input.classList) input.classList.remove('mobile-view')
-      this.removeEventsSearch()
-      this.setState({
-        searchKeyword: '',
-      })
-    }
-  }
-  handleSearchInputChange = (e) => {
-    this.setState({
-      searchKeyword: e.target.value,
-    })
-  }
-  handleSearchInputKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      this.search()
-    }
-  }
-
-  search = () => {
-    this.props.history.push(searchPath + '/' + this.state.searchKeyword)
-    this.setState({
-      searchKeyword: '',
-    })
-  }
-
-  toggleFullScreen = () => {
-    const isInFullScreen = this.isInFullScreen()
-
-    var docElm = document.documentElement
-    if (!isInFullScreen) {
-      if (docElm.requestFullscreen) {
-        docElm.requestFullscreen()
-      } else if (docElm.mozRequestFullScreen) {
-        docElm.mozRequestFullScreen()
-      } else if (docElm.webkitRequestFullScreen) {
-        docElm.webkitRequestFullScreen()
-      } else if (docElm.msRequestFullscreen) {
-        docElm.msRequestFullscreen()
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen()
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen()
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen()
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen()
-      }
-    }
-    this.setState({
-      isInFullScreen: !isInFullScreen,
-    })
-  }
+    setTimeout(() => {
+      var event = document.createEvent("HTMLEvents");
+      event.initEvent("resize", false, false);
+      window.dispatchEvent(event);
+    }, 350);
+    this.props.setContainerClassnames(
+      ++menuClickCount,
+      containerClassnames,
+      this.props.selectedMenuHasSubItems
+    );
+  };
+  mobileMenuButtonClick = (e, containerClassnames) => {
+    e.preventDefault();
+    this.props.clickOnMobileMenu(containerClassnames);
+  };
 
   render() {
-    console.log('lang', this.state.lang)
-    const { containerClassnames, menuClickCount, locale } = this.props
-    const { messages } = this.props.intl
+    console.log("lang", this.state.lang);
+    const { containerClassnames, menuClickCount, locale } = this.props;
+    const { messages } = this.props.intl;
     return (
-      <div >
+      <div>
         {/*
         <Nav horizontal className="justify-content-center" style={{ height: '45px', backgroundColor: '#1f3b64', width: '100%', paddingLeft: '5%', paddingRight: '8%' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginRight: '5%' }}>
@@ -236,150 +176,184 @@ class TopNav extends Component {
         </Nav>
         <div style={{ height: '1px' }} />
         */}
-        <nav className="  d-flex fixed  align-items" style={{ backgroundColor: 'red' }} >
+        <nav
+          className="  d-flex fixed  align-items-center"
+          style={{ backgroundColor: "red" }}
+        >
           <div
             className="d-flex align-items"
+            style={{
+              height: "150px",
+              width: "100%",
+              backgroundColor: "#28537f",
 
-            style={{ height: '100%', width: '100%', backgroundColor: '#1f3b64', width: '100%', justifyContent: 'space-between', paddingLeft: '5%', paddingRight: '2%', display: 'flex', flexWrap: 'wrap' }}
+              justifyContent: "space-between",
+              paddingLeft: "10%",
+              paddingRight: "2%",
+              display: "flex",
+              flexWrap: "wrap",
+            }}
           >
-
             <div>
-              <div
-                className={Classes.Image_Container}
-              >
+              <div className={Classes.Image_Container}>
                 <img
                   style={{
-                    maxWidth: '120px', minWidth: '100px', maxHeight: 'auto', width: '100%',
+                    maxWidth: "130px",
+                    minWidth: "130px",
+                    maxHeight: "auto",
+                    width: "100%",
                   }}
                   src={logo}
                   alt="logo"
                 />
               </div>
-
             </div>
-            <div className="d-flex align-items" >
-              <div
-                className={Classes.Item_component}
-              >
+            <div className="d-flex align-items">
+              <div className={Classes.Item_component}>
                 <Nav horizontal className="justify-content-left">
                   {menuItems().map((item) => {
                     return (
-                      <NavItem key={item.id} style={{ minWidth: '100px', }}>
+                      <NavItem key={item.id} style={{ minWidth: "110px" }}>
                         <NavLink
+                        
                           to={item.to}
                           data-flag={item.id}
                           className={Classes.Linktitle}
                           activeStyle={{
-                            color: '#FFF',
-                            fontWeight: 'bold',
-                            position: 'relative',
-                            textUnderlineOffset: '10px',
-                            textDecoration: ' underline #fff 5px',
-                            backgroundColor: '#344B8A',
-                            opacity: '1',
-                            backgroundColor: 'red'
-
+                            color: "#FFF",
+                            fontWeight: "bold",
+                            position: "relative",
+                            textUnderlineOffset: "10px",
+                            textDecoration: " underline #fff 5px",
+                            backgroundColor: "#344B8A",
+                            opacity: "1",
+                            backgroundColor: "red",
                           }}
                         >
-
-                          <div
-                            className={Classes.menu_item_title}
-                          >
+                          <div className={Classes.menu_item_title}>
                             <IntlMessages id={item.label} />
                           </div>
                         </NavLink>
                       </NavItem>
-                    )
+                    );
                   })}
-
                 </Nav>
 
-                <UncontrolledDropdown>
+                <UncontrolledDropdown
+                  onMouseOver={this.onMouseEnter}
+                  onMouseLeave={this.onMouseLeave}
+                  isOpen={this.state.dropdownOpen}
+                  toggle={this.toggle}
+                >
                   <DropdownToggle
-                    style={{ backgroundColor: '#1f3b64', border: '0px', width: '100%' }}
+                    className={Classes.Dropdown_title}
+                    caret
+                    color="light"
+                    size="sm"
+                    style={{
+                      backgroundColor: "#28537f",
+                      borderColor: "#28537f",
+                      color: "#fff",
+                      fontSize: "18px",
+                     
+                      color: "#1a2733",
 
+                      textUnderlineOffset: "10px",
+                      fontSize: "18px",
+                    }}
                   >
-                    <div className={Classes.Dropdown_title} style={{
-
-                      fontWeight: 'bold',
-
-                      textUnderlineOffset: '10px',
-                      //textDecoration: ' underline #fff 5px',
-                      backgroundColor: '#1f3b64',
-                      opacity: '1',
-                      display: 'flex',
-                      alignContent: 'center',
-                      justifyContent: 'center',
-
-
-                      fontSize: '18px',
-
-                    }}>Departement <ArrowDropDownIcon sx={{ color: green[50], fontSize: 26 }} /></div>
-
+                    <IntlMessages id="dashboards.department" />
                   </DropdownToggle>
-                  <DropdownMenu className="mt-3" right style={{ width: '500px' }}>
-                    <DropdownItem>
-                      Dailyse
-                    </DropdownItem>
-                    <DropdownItem>
-                      Consomable
-                    </DropdownItem>
-                    <DropdownItem>
-                      Cardiologie
-                    </DropdownItem>
-                    <DropdownItem href='https://www.agbl.net/'>
-                      AGBl
-                    </DropdownItem>
 
+                  <DropdownMenu
+                    className="mt-0"
+                    right
+                    style={{ width: "250px", top: "-54px" }}
+                  >
+                    {department.map((item) => (
+                      <div key={item.id}>
+                        <DropdownItem href={item.link} className={Classes.department_linktitle}>
+                          {item.name}
+                        </DropdownItem>
+                      </div>
+                    ))}
                   </DropdownMenu>
                 </UncontrolledDropdown>
-                <UncontrolledDropdown>
+                <UncontrolledDropdown
+                  onMouseOver={this.onMouseOpen}
+                  onMouseLeave={this.onMouseClose}
+                  isOpen={this.state.dropdownOpen1}
+                  toggle={this.toggle1}
+                >
                   <DropdownToggle
-                    style={{ backgroundColor: '#1f3b64', border: '0px' }}
+                    className={Classes.Dropdown_title}
+                    caret
+                    color="light"
+                    size="sm"
+                    style={{
+                      backgroundColor: "#28537f",
+                      borderColor: "#28537f",
+                     
+                      fontSize: "18px",
+                     
+                      color: "#1a2733",
 
+                      textUnderlineOffset: "10px",
+                      fontSize: "18px",
+                    }}
                   >
-                    <div className={Classes.Dropdown_title} style={{
-
-                      fontWeight: 'bold',
-
-                      textUnderlineOffset: '10px',
-                      //textDecoration: ' underline #fff 5px',
-                      backgroundColor: '#1f3b64',
-                      opacity: '1',
-                      display: 'flex',
-                      alignContent: 'center',
-                      justifyContent: 'center',
-
-
-                      fontSize: '18px',
-
-                    }}>About<ArrowDropDownIcon sx={{ color: green[50], fontSize: 20 }} /></div>
-
+                    <IntlMessages id="dashboards.about" />
                   </DropdownToggle>
-                  <DropdownMenu className="mt-3" right>
-                    <DropdownItem tag={Link} to='/app/dashboards/about'>
+                  <DropdownMenu className="mt-0" left>
+                    <DropdownItem
+                      className={Classes.department_linktitle}
+                      tag={Link}
+                      to="/app/dashboards/about"
+                    >
                       Our Company
                     </DropdownItem>
-                    <DropdownItem>
+                    <DropdownItem className={Classes.department_linktitle}>
                       News
                     </DropdownItem>
-
-
                   </DropdownMenu>
                 </UncontrolledDropdown>
-
-
+                <UncontrolledDropdown className="mr-2">
+                  <DropdownToggle
+                    caret
+                    color="light"
+                    size="sm"
+                    className={Classes.Dropdown_title}
+                    style={{
+                      backgroundColor: "#28537f",
+                      borderColor: "#28537f",
+                      color: "#fff",
+                      fontSize: "18px",
+                    }}
+                  >
+                    <span className="name">{this.state.lang}</span>
+                  </DropdownToggle>
+                  <DropdownMenu className="mt-3" right>
+                    {localeOptions.map((l) => {
+                      return (
+                        <DropdownItem
+                          className={Classes.Linktitle}
+                          onClick={() =>
+                            this.handleChangeLocale(l.id, l.direction)
+                          }
+                          key={l.id}
+                        >
+                          {l.name}
+                        </DropdownItem>
+                      );
+                    })}
+                  </DropdownMenu>
+                </UncontrolledDropdown>
               </div>
             </div>
           </div>
-
-
-
-
-        </nav >
-
+        </nav>
       </div>
-    )
+    );
   }
 }
 
@@ -391,8 +365,8 @@ const mapStateToProps = (state) => {
     locale: state.settings.locale,
     auth: state.auth,
     id: state.auth.response.id,
-  }
-}
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     setContainerClassnames: (parm1, param2, param3) =>
@@ -402,6 +376,6 @@ const mapDispatchToProps = (dispatch) => {
     logoutHandler: () => dispatch(logoutAction.logout()),
     updateLanguage: (data, id) =>
       dispatch(allLanguageActions.updateLanguageRequest(data, id)),
-  }
-}
-export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(TopNav))
+  };
+};
+export default injectIntl(connect(mapStateToProps, mapDispatchToProps)(TopNav));

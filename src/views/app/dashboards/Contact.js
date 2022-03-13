@@ -52,7 +52,7 @@ function Contact(props) {
             <div className={Classes.contact_image}>
                 <div>
                     <Row>
-                        <Col className={Classes.Contact_title}>
+                        <Col>
                             <Breadcrumb
                                 match={props.match}
                                 style={{ backgroundColor: "red" }}

@@ -22,6 +22,11 @@ const Contact = React.lazy(() =>
 const About = React.lazy(() =>
   import(/* webpackChunkName: "dashboard-default" */ "./about")
 )
+const Dialysis = React.lazy(() =>
+  import(/* webpackChunkName: "dashboard-default" */ "./department/dialysis")
+)
+
+  
 
 const Dashboards = ({ match, role }) => (
   <Suspense fallback={<div className="loading" />}>
@@ -50,6 +55,10 @@ const Dashboards = ({ match, role }) => (
         path={`${match.url}/about`}
         render={(props) => <About {...props} />}
       />
+       <Route
+        path={`${match.url}/department/dialysis`}
+        render={(props) => <Dialysis {...props} />}
+      /> 
 
 
 

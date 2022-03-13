@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "Montserrat-Light";
+  src: local("Montserrat-Light"),
+    url("../../assets/Montserrat-Light.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: local("Montserrat-Bold"),
+    url("../../assets/Montserrat-Bold.ttf") format("opentype");
+}
+
+.Container_Contact {
+  margin-top: -16%;
+  font-weight: bold;
+  font-size: 18px;
+  width: 100%;
+}
+
+.dialysis_hidden_image {
+  height: 500px;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  background-image: url("../../assets/images/dark_capture.png");
+  color: red;
+  margin-top: 16%;
+
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-color: #031a33;
+}
+
+.About_title {
+  color: #fff;
+  font-family: DIN2014-Bold, sans-serif;
+  font-size: 63px;
+  margin-left: 2%;
+}
+
+.department_description {
+  font-family: Montserrat-Light, sans-serif;
+  font-size: 22px;
+  color: #fff;
+  max-width: 600px;
+  text-align: justify;
+  padding-left: 2%;
+}
+
+.department_dialysis_product_description {
+  font-family: Montserrat-Light, sans-serif;
+  font-size: 22px;
+  color: #000;
+  max-width: 600px;
+  text-align: justify;
+  padding-left: 2%;
+}
+
+.department_dialysis_product_title {
+  font-family: Montserrat-Light, sans-serif;
+  font-size: 22px;
+  color: #0033a0;
+  max-width: 600px;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.dialysis_machine_images_hidden {
+  height: 400px;
+  width: 715px;
+  max-width: 100%;
+}
+
+.realisation_machine_images_hidden{
+  height: 400px;
+  width: 715px;
+  max-width: 100%;
+  min-width:  465px;
+
+}
+
+.dialysis_machine_product_description {
+  font-family: Montserrat-Light, sans-serif;
+  font-size: 14px;
+  color: #484c53;
+  max-width: 600px;
+  text-align: justify;
+  margin-top: 2%;
+  
+  padding-left: 5%;
+}
+
+.dialysis_machine_product_title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 24px;
+  color: #0033a0;
+  max-width: 600px;
+  text-align: justify;
+  font-weight: bold;
+  padding: 5%;
+}
+
+.realisation_project_title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 24px;
+  color: #0033a0;
+  max-width: 600px;
+  text-align: justify;
+  font-weight: bold;
+  padding-left: 5%;
+}
+
+.realisation_component {
+  margin-top: -15%;
+  padding-left: 5%;
+  padding-top: 2%; 
+  padding-right: 5%;
+  margin-left: 5%;
+  background-color: #fff;
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+
+.realisation_view{
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 16px;
+  color: #2e7d32;
+  padding-left: 1%;
+  cursor: pointer;
+}
