@@ -150,11 +150,12 @@ module.exports = {
   "menu.layouts": "Layouts",
   "menu.validations": "Validations",
   "menu.wizard": "Wizard",
-  "menu.dialysis":"Dialysis",
+  "menu.dialysis": "Dialysis",
   "menu.department": "Department",
-
-  
-
+  "menu.news": "News",
+  "menu.company":"Company",
+  "menu.cardiology":"Cardiology",
+  "menu.equipment":"Equipment",
   /* 04.Dashboards */
   "dashboards.pending-orders": "Pending Orders",
   "dashboards.completed-orders": "Completed Orders",
@@ -664,9 +665,8 @@ module.exports = {
   "topnav.signout": "Signout",
   "dashboards.home": "HOME",
   "dashboards.services": "SERVICE",
-  "dashboards.contact":"CONTACT",
-  "dashboards.department":"DEPARTMENT",
-  "dashboards.about":"ABOUT",
-  "dashboards.dialysis":"dialysis",
-  
+  "dashboards.contact": "CONTACT",
+  "dashboards.department": "DEPARTMENT",
+  "dashboards.about": "ABOUT",
+  "dashboards.dialysis": "dialysis",
 };

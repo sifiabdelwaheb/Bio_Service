@@ -10,7 +10,7 @@ const mapStyles = {
 
 export class MapContainer extends Component {
     state = {
-        showingInfoWindow: false,  // Hides or shows the InfoWindow
+        showingInfoWindow: true,  // Hides or shows the InfoWindow
         activeMarker: {},          // Shows the active marker upon click
         selectedPlace: {}          // Shows the InfoWindow to the selected place upon a marker
     };

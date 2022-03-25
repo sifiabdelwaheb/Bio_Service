@@ -9,30 +9,15 @@
     url("../../../../assets/Montserrat-Bold.ttf") format("opentype");
 }
 
-.Container_Contact {
+.container_departments {
   margin-top: -16%;
   font-weight: bold;
   font-size: 18px;
   width: 100%;
 }
 
-.dialysis_hidden_image {
-  height: 500px;
-  width: 100%;
-  padding-left: 2%;
-  display: flex;
-  background-image: url("../../../../assets/images/dark_capture.png");
-  color: red;
-  margin-top: 16%;
 
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  background-color: #031a33;
-}
-
-.About_title {
+.department_title {
   color: #fff;
   font-family: DIN2014-Bold, sans-serif;
   font-size: 63px;
@@ -73,8 +58,16 @@
   max-width: 600px;
   text-align: justify;
   font-weight: bold;
-}
 
+}
+.department_realisations_title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 22px;
+  color: #0033a0;
+  max-width: 600px;
+  text-align: justify;
+  font-weight: bold;
+}
 .dialysis_machine_images_hidden {
   height: 400px;
   width: 715px;
@@ -100,4 +93,111 @@
   text-align: justify;
   font-weight: bold;
   padding: 5%;
+}
+
+.dialysis_hidden_image {
+  height: 500px;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  background-image: url("../../../../assets/images/dialysis1.png");
+  color: red;
+  margin-top: 16%;
+
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-color: #031a33;
+  background-image: linear-gradient(
+    to right,
+    #0c1b41,#0f2157,#17266d,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  ),
+  url("../../../../assets/images/dialysis1.png");
+background-repeat: no-repeat;
+background-position: right;
+}
+
+.cardiology_hidden_image {
+  height: 500px;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  background-image: url("../../../../assets/images/cardiology.png");
+  color: red;
+  margin-top: 16%;
+
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+ 
+  background-image: linear-gradient(
+    to right,
+    #0c1b41,#0f2157,#17266d,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  ),
+  url("../../../../assets/images/cardiology.png");
+background-repeat: no-repeat;
+background-position: right;
+}
+
+
+.medication_hidden_image {
+  height: 500px;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  color: red;
+  margin-top: 16%;
+
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+ 
+  background-image: linear-gradient(
+    to right,
+    #0c1b41,#0f2157,#17266d,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  ),
+  url("../../../../assets/images/pharmacy-interior.jpg");
+background-repeat: no-repeat;
+background-position: right;
+}
+
+.equipment_hidden_image {
+  height: 500px;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  color: red;
+  margin-top: 16%;
+
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+ 
+  background-image: linear-gradient(
+    to right,
+    #0c1b41,#0f2157,#17266d,
+    transparent,
+    transparent,
+    transparent,
+    transparent
+  ),
+  url("../../../../assets/images/EQUIPEMENTS.png");
+background-repeat: no-repeat;
+background-position: right;
 }

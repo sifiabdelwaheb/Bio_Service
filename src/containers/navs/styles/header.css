@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #2b3980;
+  margin: auto -16px;
+  padding: 5px auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  padding-bottom: 0 0 4.5rem;
+}
+
+.navbar a:hover,
+:focus {
+  color: burlywood !important;
+}
+
+.colorChange {
+  background-color: red;
+}
+
+.colorChange h1 {
+  color: burlywood;
+}
+
+.colorChange a {
+  color: burlywood !important;
+  text-decoration: none;
+}
+
+.colorChange a:hover {
+  color: yellow !important;
+}

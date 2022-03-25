@@ -12,6 +12,9 @@ import Slider from "./Slider";
 import SendIcon from "@mui/icons-material/Send";
 import { green, white } from "@mui/material/colors";
 
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import RealisaionSlider from "./Realisation_Slider";
 import {
   Row,
   Col,
@@ -22,13 +25,9 @@ import {
   CarouselCaption,
 } from "reactstrap";
 const RealisationCard = (props) => (
-  <div style={{ marginTop: "5%" }}>
+  <div>
     <Row>
-      <img
-        src={props.image}
-        alt="iconplus"
-        className={Classes.realisation_machine_images_hidden}
-      />
+      <RealisaionSlider image={props.image} />
     </Row>
     <div className={Classes.realisation_component}>
       <Row>

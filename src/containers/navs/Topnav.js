@@ -53,7 +53,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import department from "./department";
+import department from "../../data/department";
 class TopNav extends Component {
   constructor(props) {
     super(props);
@@ -180,20 +180,7 @@ class TopNav extends Component {
           className="  d-flex fixed  align-items-center"
           style={{ backgroundColor: "red" }}
         >
-          <div
-            className="d-flex align-items"
-            style={{
-              height: "150px",
-              width: "100%",
-              backgroundColor: "#28537f",
-
-              justifyContent: "space-between",
-              paddingLeft: "10%",
-              paddingRight: "2%",
-              display: "flex",
-              flexWrap: "wrap",
-            }}
-          >
+          <div className={Classes.nav_header_component}>
             <div>
               <div className={Classes.Image_Container}>
                 <img
@@ -215,7 +202,6 @@ class TopNav extends Component {
                     return (
                       <NavItem key={item.id} style={{ minWidth: "110px" }}>
                         <NavLink
-                        
                           to={item.to}
                           data-flag={item.id}
                           className={Classes.Linktitle}
@@ -255,7 +241,7 @@ class TopNav extends Component {
                       borderColor: "#28537f",
                       color: "#fff",
                       fontSize: "18px",
-                     
+
                       color: "#1a2733",
 
                       textUnderlineOffset: "10px",
@@ -272,7 +258,10 @@ class TopNav extends Component {
                   >
                     {department.map((item) => (
                       <div key={item.id}>
-                        <DropdownItem href={item.link} className={Classes.department_linktitle}>
+                        <DropdownItem
+                          href={item.link}
+                          className={Classes.department_linktitle}
+                        >
                           {item.name}
                         </DropdownItem>
                       </div>
@@ -293,9 +282,9 @@ class TopNav extends Component {
                     style={{
                       backgroundColor: "#28537f",
                       borderColor: "#28537f",
-                     
+
                       fontSize: "18px",
-                     
+
                       color: "#1a2733",
 
                       textUnderlineOffset: "10px",
@@ -308,11 +297,15 @@ class TopNav extends Component {
                     <DropdownItem
                       className={Classes.department_linktitle}
                       tag={Link}
-                      to="/app/dashboards/about"
+                      to="/app/dashboards/about/company"
                     >
                       Our Company
                     </DropdownItem>
-                    <DropdownItem className={Classes.department_linktitle}>
+                    <DropdownItem
+                      className={Classes.department_linktitle}
+                      tag={Link}
+                      to="/app/dashboards/about/news"
+                    >
                       News
                     </DropdownItem>
                   </DropdownMenu>
@@ -326,7 +319,7 @@ class TopNav extends Component {
                     style={{
                       backgroundColor: "#28537f",
                       borderColor: "#28537f",
-                      color: "#fff",
+                      color: "#1a2733",
                       fontSize: "18px",
                     }}
                   >

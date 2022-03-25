@@ -22,7 +22,7 @@ import {
   TabPane,
 } from "reactstrap";
 
-function Dialysis(props) {
+function Equipment(props) {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(1);
   const [data, setData] = useState(realisation_data);
@@ -43,7 +43,7 @@ function Dialysis(props) {
 
   return (
     <div className={Classes.container_departments}>
-      <div className={Classes.dialysis_hidden_image}>
+      <div className={Classes.equipment_hidden_image}>
         <div>
           <Row>
             <Col>
@@ -54,12 +54,12 @@ function Dialysis(props) {
             </Col>{" "}
           </Row>
           <Row>
-            <Col className={Classes.department_title}>Dialysis</Col>{" "}
+            <Col className={Classes.department_title}>Equipments</Col>{" "}
           </Row>{" "}
           <Row>
             <Col>
               <div className={Classes.department_description}>
-                The dialysis machine mixes and monitors the dialysate. Dialysate
+                The Cardiologie machine mixes and monitors the dialysate. Dialysate
                 is the fluid that helps remove the unwanted waste products from
                 your blood.
               </div>
@@ -69,7 +69,7 @@ function Dialysis(props) {
       </div>
 
       <div style={{ padding: "5%" }}>
-        <div className={Classes.department_product_title}>Dialysis Products</div>
+        <div className={Classes.department_product_title}>Equipments Products</div>
         <hr style={{ minHeight: "2px" }} />
         <Nav tabs>
           {products.map((item) => (
@@ -110,7 +110,7 @@ function Dialysis(props) {
           }}
         >
           <div className={Classes.department_realisations_title}>
-          Dialysis Realisations
+          Cardiologie Realisations
           </div>
           <hr style={{ minHeight: "2px" }} />
         </div>
@@ -142,4 +142,4 @@ function Dialysis(props) {
   );
 }
 
-export default injectIntl(Dialysis);
+export default injectIntl(Equipment);

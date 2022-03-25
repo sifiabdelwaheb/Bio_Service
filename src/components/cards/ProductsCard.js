@@ -18,8 +18,8 @@ import {
     CarouselIndicators,
     CarouselCaption,
   } from "reactstrap";
-const DepartmentCard = (props) => (
-  <div>
+const ProductsCard = (props) => (
+  <div className={Classes.department_dialysis_card}>
     <div className={Classes.department_dialysis_product_title}>
       {props.title}
     </div>
@@ -33,7 +33,7 @@ const DepartmentCard = (props) => (
         />
       </Col>
 
-      <Col>
+      <Col className={Classes.product_card_details}>
         <Row>
           <div className={Classes.dialysis_machine_product_title}>
             Products{" "}
@@ -66,4 +66,4 @@ const DepartmentCard = (props) => (
     </Row>
   </div>
 );
-export default injectIntl(DepartmentCard);
+export default injectIntl(ProductsCard);

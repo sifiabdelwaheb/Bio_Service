@@ -6,20 +6,20 @@ const Departement = [
   },
   {
     id: 2,
-    name: "Consomable",
-    link: "/app/dashboards/about",
+    name: "Equipment",
+    link: "/app/dashboards/department/equipment",
   },
   {
     id: 3,
     name: "Cardiologie",
-    link: "/app/dashboards/contact",
+    link: "/app/dashboards/department/cardiology",
   },
   { id: 55, name: "Télemedcine", link: "/app/dashboards/contact" },
   ,
   {
     id: 5,
     name: "Médicament",
-    link: "/app/dashboards/contact",
+    link: "/app/dashboards/department/medication",
   },
 ];
 export default Departement;
