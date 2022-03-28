@@ -32,8 +32,6 @@ import {
   isDarkSwitchActive,
 } from "../../constants/defaultValues";
 
-import { MobileMenuIcon, MenuIcon } from "../../components/svg";
-
 import { getDirection, setDirection } from "../../helpers/Utils";
 import Classes from "./style.module.css";
 
@@ -41,19 +39,12 @@ import IntlMessages from "../../helpers/IntlMessages";
 import Sidebar from "./Sidebar";
 import { Nav, NavItem, Collapse } from "reactstrap";
 import menuItems from "../../constants/menu";
-import { Row, Col, Input } from "reactstrap";
-//LocationOnIcon from 'icons-material/LocationOn';
-import AddLocationIcon from "@mui/icons-material/AddLocation";
-import CallIcon from "@mui/icons-material/Call";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { green } from "@mui/material/colors";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+
 import department from "../../data/department";
+
+import Drawer from "./drawer";
 class TopNav extends Component {
   constructor(props) {
     super(props);
@@ -63,11 +54,17 @@ class TopNav extends Component {
     this.toggle1 = this.toggle1.bind(this);
     this.onMouseOpen = this.onMouseOpen.bind(this);
     this.onMouseClose = this.onMouseClose.bind(this);
-
+    this.handleClose = this.handleClose.bind(this);
+    this.handleShow = this.handleShow.bind(this);
     this.state = {
       isInFullScreen: false,
       dropdownOpen: false,
       dropdownOpen1: false,
+      show: false,
+      top: false,
+      left: false,
+      bottom: false,
+      right: false,
 
       searchKeyword: "",
       lang:
@@ -77,6 +74,12 @@ class TopNav extends Component {
     };
   }
 
+  handleClose() {
+    this.setState({ show: false });
+  }
+  handleShow() {
+    this.setState({ show: true });
+  }
   toggle() {
     this.setState((prevState) => ({
       dropdownOpen: !prevState.dropdownOpen,
@@ -148,7 +151,7 @@ class TopNav extends Component {
     const { containerClassnames, menuClickCount, locale } = this.props;
     const { messages } = this.props.intl;
     return (
-      <div>
+      <div >
         {/*
         <Nav horizontal className="justify-content-center" style={{ height: '45px', backgroundColor: '#1f3b64', width: '100%', paddingLeft: '5%', paddingRight: '8%' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginRight: '5%' }}>
@@ -195,153 +198,159 @@ class TopNav extends Component {
                 />
               </div>
             </div>
-            <div className="d-flex align-items">
-              <div className={Classes.Item_component}>
-                <Nav horizontal className="justify-content-left">
-                  {menuItems().map((item) => {
-                    return (
-                      <NavItem key={item.id} style={{ minWidth: "110px" }}>
-                        <NavLink
-                          to={item.to}
-                          data-flag={item.id}
-                          className={Classes.Linktitle}
-                          activeStyle={{
-                            color: "#FFF",
-                            fontWeight: "bold",
-                            position: "relative",
-                            textUnderlineOffset: "10px",
-                            textDecoration: " underline #fff 5px",
-                            backgroundColor: "#344B8A",
-                            opacity: "1",
-                            backgroundColor: "red",
-                          }}
-                        >
-                          <div className={Classes.menu_item_title}>
-                            <IntlMessages id={item.label} />
-                          </div>
-                        </NavLink>
-                      </NavItem>
-                    );
-                  })}
-                </Nav>
-
-                <UncontrolledDropdown
-                  onMouseOver={this.onMouseEnter}
-                  onMouseLeave={this.onMouseLeave}
-                  isOpen={this.state.dropdownOpen}
-                  toggle={this.toggle}
-                >
-                  <DropdownToggle
-                    className={Classes.Dropdown_title}
-                    caret
-                    color="light"
-                    size="sm"
-                    style={{
-                      backgroundColor: "#28537f",
-                      borderColor: "#28537f",
-                      color: "#fff",
-                      fontSize: "18px",
-
-                      color: "#1a2733",
-
-                      textUnderlineOffset: "10px",
-                      fontSize: "18px",
-                    }}
-                  >
-                    <IntlMessages id="dashboards.department" />
-                  </DropdownToggle>
-
-                  <DropdownMenu
-                    className="mt-0"
-                    right
-                    style={{ width: "250px", top: "-54px" }}
-                  >
-                    {department.map((item) => (
-                      <div key={item.id}>
-                        <DropdownItem
-                          href={item.link}
-                          className={Classes.department_linktitle}
-                        >
-                          {item.name}
-                        </DropdownItem>
-                      </div>
-                    ))}
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-                <UncontrolledDropdown
-                  onMouseOver={this.onMouseOpen}
-                  onMouseLeave={this.onMouseClose}
-                  isOpen={this.state.dropdownOpen1}
-                  toggle={this.toggle1}
-                >
-                  <DropdownToggle
-                    className={Classes.Dropdown_title}
-                    caret
-                    color="light"
-                    size="sm"
-                    style={{
-                      backgroundColor: "#28537f",
-                      borderColor: "#28537f",
-
-                      fontSize: "18px",
-
-                      color: "#1a2733",
-
-                      textUnderlineOffset: "10px",
-                      fontSize: "18px",
-                    }}
-                  >
-                    <IntlMessages id="dashboards.about" />
-                  </DropdownToggle>
-                  <DropdownMenu className="mt-0" left>
-                    <DropdownItem
-                      className={Classes.department_linktitle}
-                      tag={Link}
-                      to="/app/dashboards/about/company"
-                    >
-                      Our Company
-                    </DropdownItem>
-                    <DropdownItem
-                      className={Classes.department_linktitle}
-                      tag={Link}
-                      to="/app/dashboards/about/news"
-                    >
-                      News
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-                <UncontrolledDropdown className="mr-2">
-                  <DropdownToggle
-                    caret
-                    color="light"
-                    size="sm"
-                    className={Classes.Dropdown_title}
-                    style={{
-                      backgroundColor: "#28537f",
-                      borderColor: "#28537f",
-                      color: "#1a2733",
-                      fontSize: "18px",
-                    }}
-                  >
-                    <span className="name">{this.state.lang}</span>
-                  </DropdownToggle>
-                  <DropdownMenu className="mt-3" right>
-                    {localeOptions.map((l) => {
+            <div className={Classes.responsive_header_menu}>
+              <div className="d-flex align-items">
+                <div className={Classes.Item_component}>
+                  <Nav horizontal className="justify-content-left">
+                    {menuItems().map((item) => {
                       return (
-                        <DropdownItem
-                          className={Classes.Linktitle}
-                          onClick={() =>
-                            this.handleChangeLocale(l.id, l.direction)
-                          }
-                          key={l.id}
-                        >
-                          {l.name}
-                        </DropdownItem>
+                        <NavItem key={item.id} style={{ minWidth: "110px" }}>
+                          <NavLink
+                            to={item.to}
+                            data-flag={item.id}
+                            className={Classes.Linktitle}
+                            activeStyle={{
+                              color: "#FFF",
+                              fontWeight: "bold",
+                              position: "relative",
+                              textUnderlineOffset: "10px",
+                              textDecoration: " underline #fff 5px",
+                              backgroundColor: "#344B8A",
+                              opacity: "1",
+                              backgroundColor: "red",
+                            }}
+                          >
+                            <div className={Classes.menu_item_title}>
+                              <IntlMessages id={item.label} />
+                            </div>
+                          </NavLink>
+                        </NavItem>
                       );
                     })}
-                  </DropdownMenu>
-                </UncontrolledDropdown>
+                  </Nav>
+
+                  <UncontrolledDropdown
+                    onMouseOver={this.onMouseEnter}
+                    onMouseLeave={this.onMouseLeave}
+                    isOpen={this.state.dropdownOpen}
+                    toggle={this.toggle}
+                  >
+                    <DropdownToggle
+                      className={Classes.Dropdown_title}
+                      caret
+                      color="light"
+                      size="sm"
+                      style={{
+                        backgroundColor: "#28537f",
+                        borderColor: "#28537f",
+                        color: "#fff",
+                        fontSize: "18px",
+
+                        color: "#1a2733",
+
+                        textUnderlineOffset: "10px",
+                        fontSize: "18px",
+                      }}
+                    >
+                      <IntlMessages id="dashboards.department" />
+                    </DropdownToggle>
+
+                    <DropdownMenu
+                      className="mt-0"
+                      right
+                      style={{ width: "250px", top: "-54px" }}
+                    >
+                      {department.map((item) => (
+                        <div key={item.id}>
+                          <DropdownItem
+                            href={item.link}
+                            className={Classes.department_linktitle}
+                          >
+                            {item.name}
+                          </DropdownItem>
+                        </div>
+                      ))}
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                  <UncontrolledDropdown
+                    onMouseOver={this.onMouseOpen}
+                    onMouseLeave={this.onMouseClose}
+                    isOpen={this.state.dropdownOpen1}
+                    toggle={this.toggle1}
+                  >
+                    <DropdownToggle
+                      className={Classes.Dropdown_title}
+                      caret
+                      color="light"
+                      size="sm"
+                      style={{
+                        backgroundColor: "#28537f",
+                        borderColor: "#28537f",
+
+                        fontSize: "18px",
+
+                        color: "#1a2733",
+
+                        textUnderlineOffset: "10px",
+                        fontSize: "18px",
+                      }}
+                    >
+                      <IntlMessages id="dashboards.about" />
+                    </DropdownToggle>
+                    <DropdownMenu className="mt-0" left>
+                      <DropdownItem
+                        className={Classes.department_linktitle}
+                        tag={Link}
+                        to="/app/dashboards/about/company"
+                      >
+                        Our Company
+                      </DropdownItem>
+                      <DropdownItem
+                        className={Classes.department_linktitle}
+                        tag={Link}
+                        to="/app/dashboards/about/news"
+                      >
+                        News
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                  <UncontrolledDropdown className="mr-2">
+                    <DropdownToggle
+                      caret
+                      color="light"
+                      size="sm"
+                      className={Classes.Dropdown_title}
+                      style={{
+                        backgroundColor: "#28537f",
+                        borderColor: "#28537f",
+                        color: "#1a2733",
+                        fontSize: "18px",
+                      }}
+                    >
+                      <span className="name">{this.state.lang}</span>
+                    </DropdownToggle>
+                    <DropdownMenu className="mt-3" right>
+                      {localeOptions.map((l) => {
+                        return (
+                          <DropdownItem
+                            className={Classes.Linktitle}
+                            onClick={() =>
+                              this.handleChangeLocale(l.id, l.direction)
+                            }
+                            key={l.id}
+                          >
+                            {l.name}
+                          </DropdownItem>
+                        );
+                      })}
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                </div>
               </div>
+              <div></div>
+            </div>
+            <div className={Classes.responsive_button}>
+              <Drawer />
             </div>
           </div>
         </nav>

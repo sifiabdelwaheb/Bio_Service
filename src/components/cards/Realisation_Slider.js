@@ -5,7 +5,6 @@ import Slider from "react-slick";
 import logo from "../../assets/svg/bioservice.svg";
 
 import realisation_data from "../../data/realisation";
-import images from "./images";
 console.log("realisation_data************", realisation_data);
 export default function RealisaionSlider(props) {
   return (
@@ -26,13 +25,13 @@ export default function RealisaionSlider(props) {
         }}
       >
         {props.image.map((item) => (
-          <a key={item.id}>
+          <div key={item.id}>
             {" "}
             <img
               src={item.img}
               className={Classes.realisation_machine_images_hidden}
             />
-          </a>
+          </div>
         ))}
       </Slider>
     </div>

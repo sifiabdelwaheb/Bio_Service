@@ -11,6 +11,7 @@ import realisation_data from "../../../../data/realisation";
 import products_data from "../.././../../data/products";
 
 import Breadcrumb from "../../../../containers/navs/Breadcrumb";
+import { CardActionArea } from "@mui/material";
 
 import {
   Row,
@@ -25,21 +26,8 @@ import {
 function Dialysis(props) {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(1);
-  const [data, setData] = useState(realisation_data);
-  const [products, setProducts] = useState(products_data);
-  useEffect(() => {
-    setProducts(products_data);
-    console.log("details**************", products);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
-
-  useEffect(() => {
-    setData(realisation_data);
-    console.log("details**************", data);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+  //const [data, setData] = useState(realisation_data);
+ 
 
   return (
     <div className={Classes.container_departments}>
@@ -69,24 +57,26 @@ function Dialysis(props) {
       </div>
 
       <div style={{ padding: "5%" }}>
-        <div className={Classes.department_product_title}>Dialysis Products</div>
+        <div className={Classes.department_product_title}>
+          Dialysis Products
+        </div>
         <hr style={{ minHeight: "2px" }} />
         <Nav tabs>
-          {products.map((item) => (
-            <div>
-              <NavItem>
+          {products_data.map((item) => (
+            <NavItem>
+              <CardActionArea >
                 <NavLink
                   className={activeTab == item.id ? "active" : ""}
                   onClick={() => setActiveTab(item.id)}
                 >
                   {item.title}
                 </NavLink>
-              </NavItem>
-            </div>
+              </CardActionArea>
+            </NavItem>
           ))}
         </Nav>
         <TabContent activeTab={activeTab}>
-          {products.map((item) => (
+          {products_data.map((item) => (
             <TabPane tabId={item.id}>
               <div
                 style={{ marginTop: "5%" }}
@@ -110,7 +100,7 @@ function Dialysis(props) {
           }}
         >
           <div className={Classes.department_realisations_title}>
-          Dialysis Realisations
+            Dialysis Realisations
           </div>
           <hr style={{ minHeight: "2px" }} />
         </div>
@@ -122,10 +112,9 @@ function Dialysis(props) {
             justifyContent: "space-around",
           }}
         >
-          {data.map((item) => (
+          {realisation_data.map((item) => (
             <div
               key={item.id}
-              href={item.link}
               style={{ marginRight: "2%", cursor: "pointer", maxWidth: "100%" }}
             >
               {" "}

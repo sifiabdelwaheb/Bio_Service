@@ -381,34 +381,7 @@
   display: flex;
 }
 
-.contact_image {
-  max-width: 100%;
-  max-height: 500px;
-  min-height: 500px;
-  height: 500px;
-  zoom: 1;
-  align-items: center;
-  justify-content: start;
-  padding-left: 2%;
-  display: flex;
-  background-image: url("../../../assets/images/contact1.png");
-  color: red;
-  margin-top: 16%;
-  font-size: 18px;
 
-  background-image: linear-gradient(
-      to right,
-      #0c1b41,#0f2157,#17266d,
-      #7c9cc6,
-      transparent,
-      transparent,
-      transparent
-    ),
-    url("../../../assets/images/istockphoto-contact1.jpg");
-  background-repeat: no-repeat;
-
-  background-position: right;
-}
 
 .about_hidden_image {
   height: 600px;
@@ -760,8 +733,41 @@
   background-color: #00b050;
   opacity: 100%;
 }
-@media screen and (max-width: 967px) {
-  .about_video_component {
-    margin-top: 190px;
+
+
+.contact_image {
+  max-width: 100%;
+  max-height: 500px;
+  min-height: 500px;
+  height: 500px;
+  zoom: 1;
+  align-items: center;
+  justify-content: start;
+  padding-left: 2%;
+  display: flex;
+  color: red;
+  margin-top: 16%;
+  font-size: 18px;
+
+  background-image: linear-gradient(
+      to right,
+      #0c1b41,#0f2157,#17266d,
+      #7c9cc6,
+      transparent,
+      transparent,
+      transparent
+    ),
+    url("../../../assets/images/istockphoto-contact1.jpg");
+  background-repeat: no-repeat;
+
+  background-position: right;
+}
+
+@media (max-width: 968px ) {
+  .contact_image {
+    background-color: #031a33;
+    background-image: none;
+
+    
   }
 }

@@ -9,18 +9,22 @@ import Inauguration from "../assets/images/Inauguration(5).jpg";
 
 const realisation_data = [
   {
-    id: "1",
+    id: 1,
     name: "project 1",
     image: [
       {
+        id: 1,
         img: Inauguration1,
       },
-      { img: Inauguration },
+
+      { id: 2, img: Inauguration },
       {
+        id: 3,
         img: Inauguration2,
       },
-      { img: Inauguration3 },
+      { id: 4, img: Inauguration3 },
       {
+        id: 5,
         img: Inauguration4,
       },
     ],
@@ -28,62 +32,74 @@ const realisation_data = [
       " inauguration du nouveau centre d’hémodialyse de l’Hôpital de Lamordé, don du groupe Orano mining",
   },
   {
-    id: "5",
-    name: "project 3",
-    image: [
-      {
-        img: open_project1,
-      },
-      { img: open_project1 },
-      {
-        img: Inauguration2,
-      },
-      { img: Inauguration3 },
-      {
-        img: Inauguration4,
-      },
-    ],
-    description:
-      " Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project.",
-  },
-  {
-    id: "3",
-    name: "project 4",
-    image: [
-      {
-        img: Inauguration1,
-      },
-      { img: Inauguration },
-      {
-        img: Inauguration2,
-      },
-      { img: Inauguration3 },
-      {
-        img: Inauguration4,
-      },
-    ],
-    description:
-      " Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project.",
-  },
-  {
-    id: "4",
+    id: 2,
     name: "project 1",
     image: [
       {
+        id: 1,
         img: Inauguration1,
       },
-      { img: Inauguration },
+
+      { id: 2, img: Inauguration },
       {
+        id: 3,
         img: Inauguration2,
       },
-      { img: Inauguration3 },
+      { id: 4, img: Inauguration3 },
       {
+        id: 5,
         img: Inauguration4,
       },
     ],
     description:
-      " Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project.",
+      "inauguration du nouveau centre d’hémodialyse de l’Hôpital de Lamordé, don du groupe Orano mining",
   },
+  {
+    id: 3,
+    name: "project 1",
+    image: [
+      {
+        id: 1,
+        img: Inauguration1,
+      },
+
+      { id: 2, img: Inauguration },
+      {
+        id: 3,
+        img: Inauguration2,
+      },
+      { id: 4, img: Inauguration3 },
+      {
+        id: 5,
+        img: Inauguration4,
+      },
+    ],
+    description:
+      " inauguration du nouveau centre d’hémodialyse de l’Hôpital de Lamordé, don du groupe Orano mining",
+  },
+  {
+    id: 4,
+    name: "project 1",
+    image: [
+      {
+        id: 1,
+        img: Inauguration1,
+      },
+
+      { id: 2, img: Inauguration },
+      {
+        id: 3,
+        img: Inauguration2,
+      },
+      { id: 4, img: Inauguration3 },
+      {
+        id: 5,
+        img: Inauguration4,
+      },
+    ],
+    description:
+      " inauguration du nouveau centre d’hémodialyse de l’Hôpital de Lamordé, don du groupe Orano mining",
+  }
 ];
 
 export default realisation_data;

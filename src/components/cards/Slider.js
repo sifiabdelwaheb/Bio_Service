@@ -3,7 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 
 
-import images from "./images";
+import images from "../../data/carousel_data";
 export default function App() {
   return (
     <div style={{ marginTop: "4%" }}>
