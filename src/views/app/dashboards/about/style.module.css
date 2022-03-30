@@ -1,61 +1,100 @@
 @font-face {
-    font-family: "Montserrat-Light";
-    src: local("Montserrat-Light"),
-      url("../../../../assets/Montserrat-Light.ttf") format("opentype");
-  }
-  @font-face {
-    font-family: "Montserrat-Bold";
-    src: local("Montserrat-Bold"),
-      url("../../../../assets/Montserrat-Bold.ttf") format("opentype");
-  }
-  
+  font-family: "Montserrat-Light";
+  src: local("Montserrat-Light"),
+    url("../../../../assets/Montserrat-Light.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: local("Montserrat-Bold"),
+    url("../../../../assets/Montserrat-Bold.ttf") format("opentype");
+}
 
 .Container_Contact {
-    margin-top: -16%;
-    font-weight: bold;
-    font-size: 18px;
-    width: 100%;
-  }
-  
+  margin-top: -16%;
+  font-weight: bold;
+  font-size: 18px;
+  width: 100%;
+}
 
-  .dialysis_hidden_image {
-    height: 500px;
-    width: 100%;
-    padding-left: 2%;
-    display: flex;
-    background-image: url("../../../../assets/images/dark_capture.png");
-    color: red;
-    margin-top: 16%;
-  
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    background-color: #031a33;
-  }
+.dialysis_hidden_image {
+  height: 500px;
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  background-image: url("../../../../assets/images/dark_capture.png");
+  color: red;
+  margin-top: 16%;
 
-  .About_title {
-    color: #fff;
-    font-family: DIN2014-Bold, sans-serif;
-    font-size: 63px;
-    margin-left: 2%;
-  }
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-color: #031a33;
+}
 
-  
-  .department_description {
-    font-family: Montserrat-Light, sans-serif;
-    font-size: 22px;
-    color: #fff;
-    max-width: 600px;
-    text-align: justify;
-    padding-left: 2%;
-  }
-  .department_product_title {
-    font-family: Montserrat-Bold, sans-serif;
-    font-size: 22px;
-    color: #0033a0;
-    max-width: 600px;
-    text-align: justify;
-    font-weight: bold;
-  }
-    
+.About_title {
+  color: #fff;
+  font-family: DIN2014-Bold, sans-serif;
+  font-size: 63px;
+  margin-left: 2%;
+}
+
+.department_description {
+  font-family: Montserrat-Light, sans-serif;
+  font-size: 22px;
+  color: #fff;
+  max-width: 600px;
+  text-align: justify;
+  padding-left: 2%;
+}
+.department_product_title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 22px;
+  color: #0033a0;
+  max-width: 600px;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.about_description {
+  margin-top: 4%;
+  margin-bottom: 4%;
+
+  font-family: Poppins-Light, sans-serif;
+
+  font-size: 16px;
+  line-height: 24px;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  text-justify: center;
+}
+
+.container_read_more {
+  position: relative;
+}
+
+.read_more_text {
+  display: inline;
+  width: 100%;
+  font-family: Poppins-Light, sans-serif;
+
+  font-size: 16px;
+  color: #303030;
+  font-weight: bold;
+}
+
+.read_or_hide {
+  color: #a07ac9;
+  cursor: pointer;
+  font-family: Poppins-Light, sans-serif;
+}
+
+.company_list_title {
+  font-family: Poppins-Light, sans-serif;
+  color: rebeccapurple;
+}
+
+.company_list_title::marker {
+  color: green;
+}

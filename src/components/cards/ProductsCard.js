@@ -8,16 +8,16 @@ import species from "../../data/species";
 import itemData from "../../data/images";
 import { Button } from "@material-ui/core";
 import Classes from "./style.module.css";
-
+import QuiltedImageList from "./QuiltedImageList";
 import {
-    Row,
-    Col,
-    CarouselControl,
-    Carousel,
-    CarouselItem,
-    CarouselIndicators,
-    CarouselCaption,
-  } from "reactstrap";
+  Row,
+  Col,
+  CarouselControl,
+  Carousel,
+  CarouselItem,
+  CarouselIndicators,
+  CarouselCaption,
+} from "reactstrap";
 const ProductsCard = (props) => (
   <div className={Classes.department_dialysis_card}>
     <div className={Classes.department_dialysis_product_title}>
@@ -26,11 +26,7 @@ const ProductsCard = (props) => (
     <hr style={{ minHeight: "2px" }} />
     <Row>
       <Col>
-        <img
-          src={props.image}
-          alt="iconplus"
-          className={Classes.dialysis_machine_images_hidden}
-        />
+        <QuiltedImageList itemData={props.itemData} />
       </Col>
 
       <Col className={Classes.product_card_details}>

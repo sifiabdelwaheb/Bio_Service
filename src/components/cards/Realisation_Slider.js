@@ -24,15 +24,7 @@ export default function RealisaionSlider(props) {
           maxWidth: "690px",
         }}
       >
-        {props.image.map((item) => (
-          <div key={item.id}>
-            {" "}
-            <img
-              src={item.img}
-              className={Classes.realisation_machine_images_hidden}
-            />
-          </div>
-        ))}
+       {props.image}
       </Slider>
     </div>
   );

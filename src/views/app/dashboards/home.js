@@ -38,7 +38,9 @@ function Plants(props) {
         <div className={Classes.Hiden_image}>
           <div>
             <Row>
-              <Col className={Classes.home_image_title}>International Bio Service</Col>
+              <Col className={Classes.home_image_title}>
+                International Bio Service
+              </Col>
             </Row>
 
             <Row>
@@ -112,7 +114,12 @@ function Plants(props) {
         }}
       >
         <div className={Classes.about_vision_title}>
-          Nos Réalisation
+          Quand le monde des fournitures médicales évolue de plus en plus
+          rapidement, International Bio Service continue à travailler avec
+          diligence pour garantir à ses clients des partenaires fiables et
+          efficaces sur lesquels ils peuvent compter pour les approvisionner
+          avec des produits de qualité supérieure en utilisant une technologie
+          de pointe en provenance de Japon, l’Europe et les états
         </div>
       </Row>
       <Row

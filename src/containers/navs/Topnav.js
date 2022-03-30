@@ -208,7 +208,7 @@ class TopNav extends Component {
                           <NavLink
                             to={item.to}
                             data-flag={item.id}
-                            className={Classes.Linktitle}
+                            className={Classes.Linktitle1}
                             activeStyle={{
                               color: "#FFF",
                               fontWeight: "bold",
@@ -246,7 +246,7 @@ class TopNav extends Component {
                         color: "#fff",
                         fontSize: "18px",
 
-                        color: "#1a2733",
+                        color: "#fff",
 
                         textUnderlineOffset: "10px",
                         fontSize: "18px",
@@ -289,7 +289,7 @@ class TopNav extends Component {
 
                         fontSize: "18px",
 
-                        color: "#1a2733",
+                        color: "#fff",
 
                         textUnderlineOffset: "10px",
                         fontSize: "18px",
@@ -323,7 +323,7 @@ class TopNav extends Component {
                       style={{
                         backgroundColor: "#28537f",
                         borderColor: "#28537f",
-                        color: "#1a2733",
+                        color: "#fff",
                         fontSize: "18px",
                       }}
                     >

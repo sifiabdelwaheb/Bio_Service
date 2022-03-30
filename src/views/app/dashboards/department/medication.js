@@ -59,9 +59,9 @@ function Medication(props) {
           <Row>
             <Col>
               <div className={Classes.department_description}>
-                The Cardiologie machine mixes and monitors the dialysate. Dialysate
-                is the fluid that helps remove the unwanted waste products from
-                your blood.
+                The Cardiologie machine mixes and monitors the dialysate.
+                Dialysate is the fluid that helps remove the unwanted waste
+                products from your blood.
               </div>
             </Col>
           </Row>
@@ -69,7 +69,9 @@ function Medication(props) {
       </div>
 
       <div style={{ padding: "5%" }}>
-        <div className={Classes.department_product_title}>Cardiologie Products</div>
+        <div className={Classes.department_product_title}>
+          Cardiologie Products
+        </div>
         <hr style={{ minHeight: "2px" }} />
         <Nav tabs>
           {products.map((item) => (
@@ -101,42 +103,6 @@ function Medication(props) {
             </TabPane>
           ))}
         </TabContent>
-      </div>
-
-      <div style={{ padding: "5%" }}>
-        <div
-          style={{
-            borderRadius: "12px",
-          }}
-        >
-          <div className={Classes.department_realisations_title}>
-          Cardiologie Realisations
-          </div>
-          <hr style={{ minHeight: "2px" }} />
-        </div>
-        <div
-          style={{
-            paddingLeft: "2%",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
-          }}
-        >
-          {data.map((item) => (
-            <div
-              key={item.id}
-              href={item.link}
-              style={{ marginRight: "2%", cursor: "pointer", maxWidth: "100%" }}
-            >
-              {" "}
-              <RealisationCard
-                name={item.name}
-                image={item.image}
-                description={item.description}
-              />
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );

@@ -225,3 +225,15 @@
     background-image: none;
   }
 }
+
+
+.realisation_machine_images_hidden {
+  height: 95%;
+  width: 95%;
+  max-width: 100%;
+}
+.realisation_machine_images_hidden:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}

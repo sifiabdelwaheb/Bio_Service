@@ -79,7 +79,18 @@
   background-color: darken(#28537f, 8%);
   color: #1a2733;
 }
+.Linktitle1 {
+  font-size: 100%;
+  color: #fff;
+  line-height: normal;
+  font-weight: 600;
+  font-family: Chivo-Light;
+}
 
+.Linktitle1:hover {
+  background-color: darken(#28537f, 8%);
+  color: #fff;
+}
 .department_linktitle {
   font-size: 100%;
   color: #757575;

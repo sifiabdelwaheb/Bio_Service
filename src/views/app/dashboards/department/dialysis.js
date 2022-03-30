@@ -12,6 +12,7 @@ import products_data from "../.././../../data/products";
 
 import Breadcrumb from "../../../../containers/navs/Breadcrumb";
 import { CardActionArea } from "@mui/material";
+import QuiltedImageList from "../../../../components/cards/QuiltedImageList";
 
 import {
   Row,
@@ -27,7 +28,6 @@ function Dialysis(props) {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(1);
   //const [data, setData] = useState(realisation_data);
- 
 
   return (
     <div className={Classes.container_departments}>
@@ -64,7 +64,7 @@ function Dialysis(props) {
         <Nav tabs>
           {products_data.map((item) => (
             <NavItem>
-              <CardActionArea >
+              <CardActionArea>
                 <NavLink
                   className={activeTab == item.id ? "active" : ""}
                   onClick={() => setActiveTab(item.id)}
@@ -84,7 +84,7 @@ function Dialysis(props) {
               >
                 <ProductsCard
                   title={item.title}
-                  image={item.image}
+                  itemData={item.itemData}
                   description={item.description}
                 />
               </div>{" "}
@@ -120,7 +120,15 @@ function Dialysis(props) {
               {" "}
               <RealisationCard
                 name={item.name}
-                image={item.image}
+                image={item.image.map((item) => (
+                  <div key={item.id}>
+                    {" "}
+                    <img
+                      src={item.img}
+                      className={Classes.realisation_machine_images_hidden}
+                    />
+                  </div>
+                ))}
                 description={item.description}
               />
             </div>
